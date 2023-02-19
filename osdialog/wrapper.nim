@@ -1,7 +1,8 @@
 const CFLAGS = "-g -Wall -Wextra -std=c99 -pedantic "
 
 when defined(windows):
-  {.passL: "-mwindows", compile: "src/osdialog_win.c".}
+  #{.passL: "-mwindows", compile: "src/osdialog_win.c".}
+  {.compile: "src/osdialog_win.c".}
 
 elif defined(macosx):
   {.passC: CFLAGS & "-mmacosx-version-min=10.7", passL: "-framework AppKit",
